@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RedStore | E Commerce Website</title>
+	<link rel="stylesheet" type="text/css" href="stylee.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+
+		}
+
+		body {
+			font-family: 'Poppins', sans-serif;
+			/*background-image:background.jpg ;*/
+		}
+
+		div.navbar {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			background-color: rgba(0, 0, 0, 0.3);
+
+			align-items: center;
+			padding: 20px;
+		}
+
+		{{!-- .nav {
+			display: flex;
+			flex-direction: row;
+		} --}}
+
+		.nav ul {
+			display: flex;
+			flex-direction: row;
+			
+			padding: 10px;
+			margin-top: 0px;
+			/*position:fixed;*/
+			{{!-- display: inline-block; --}}
+			list-style-type: none;
+			transform: translateY(-5px);
+			transition: .1s;
+
+		}
+
+		.nav ul li {
+			font-size: 1.1rem;
+			display: inline-block;
+			margin-right: 20px;
+		}
+
+		a:hover {
+
+			text-decoration: none;
+			color: #600;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		p {
+			color: #555;
+		}
+
+		.conatiner {
+			max-width: 1300px;
+			;
+			margin: auto;
+			padding-left: 100px;
+			padding-right: 25px;
+		}
+
+		.row {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+
+		.col-2 {
+			flex-basis: 50%;
+			min-width: 300px;
+		}
+
+		.col-2 img {
+			max-width: 100%;
+			padding: 50px 0;
+		}
+
+		.col-2 h1 {
+			font-size: 50px;
+			line-height: 60px;
+			margin: 25px 0;
+		}
+
+		.btn {
+			display: inline-block;
+			background: #f67;
+			color: #555;
+			padding: 8px 30px;
+			margin-left: 35px;
+			margin-top: 40px;
+			border-radius: 100000px;
+			transition: background 0.15s;
+			transform: translateX(-10px);
+		}
+
+		/*.btn:hover{
+	background: #563434;
+}
+*/
+		.header {
+			background: radial-gradient(gray);
+		}
+
+		.header .row {
+			margin-top: 70px;
+		}
+
+		.categories {
+			margin: 70px 0px 70px 0px;
+			background-color: rgba(0, 0, 0, .15);
+		}
+
+		.col-3 {
+			flex-basis: 30%;
+			min-width: 250px;
+			margin-bottom: 30px;
+		}
+
+		.col-3 img {
+			width: 100%;
+		}
+
+		.small-container {
+			max-width: 1080px;
+			margin: auto;
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+
+		.col-4 {
+			flex-basis: 25%;
+			padding: 10px;
+			min-width: 200px;
+			margin-bottom: 50px;
+			transition: transform .5s;
+		}
+
+		.col-4 img {
+			width: 100%;
+			border-right: ridge;
+			/*border-left: ridge;*/
+		}
+
+		/*.col-4 product-4.jpg, product-8.jpg, product-12.jpg{
+	border-right:ridge ;
+	border-width: 0px;
+}
+*/
+		.title {
+			text-align: center;
+			margin: 0 auto 8px;
+			position: relative;
+			line-height: 60px;
+			color: #555;
+		}
+
+		.title::after {
+			content: '';
+			background: #ff523b;
+			width: 80px;
+			height: 5px;
+			border-radius: 5px;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		h4 {
+			color: #555;
+			font-weight: normal;
+		}
+
+		.col-4 p {
+			font-size: 14px;
+		}
+
+		.col-4:hover {
+			transform: translateY(-5px);
+		}
+
+		/*---------offer---------*/
+		.offer {
+			background: radial-gradient(#fff, #ffd6d6);
+			margin-top: 80px;
+			padding: 30px 0;
+		}
+
+		.col-2 .offer-img {
+			padding: 50px;
+
+		}
+
+		small {
+			color: #555;
+		}
+
+		/*-------------testimonial-----------*/
+		.testimonial {
+			padding-top: 100px;
+		}
+
+		.testimonial .col-3 {
+			text-align: center;
+			padding: 40px 20px;
+			box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
+			cursor: pointer;
+			transition: transform 0.5s;
+		}
+
+		.testimonial .col-3 img {
+			width: 50px;
+			margin-top: 20px;
+			border-radius: 50%;
+		}
+
+		.testimonial .col-3:hover {
+			transform: translateX(-10px);
+		}
+
+		.col-3 p {
+			font-size: 12px;
+			margin: 12px 0;
+			color: #777;
+		}
+
+		.testimonial .col-3 h3 {
+			font-weight: 600;
+			color: #555;
+			font-size: 16px;
+
+		}
+
+		/*---brands--------*/
+		.brands {
+			margin: 100px auto;
+		}
+
+		col-5 {
+			width: 160px;
+		}
+
+		.col-5 img {
+			width: 100%;
+			cursor: pointer;
+		}
+
+		/*----------footer------------*/
+		.footer {
+			background-color: rgba(236, 221, 221, 0.698);
+
+
+			padding: 60px 50px 20px;
+		}
+
+		.footer ul li {
+			display: inline-block;
+			padding: 5px;
+		}
+
+		.footer p {
+			color: #8a8a8a;
+
+		}
+
+		.footer h3 {
+			color: black;
+			margin-bottom: 20px;
+		}
+
+		.footer-col-2,
+		.footer-col-4 {
+			min-width: 250px;
+			margin-bottom: 20px;
+		}
+
+		.footer-col-2 {
+			flex: 1;
+			text-align: center;
+		}
+
+		.footer-col-4 {
+			flex-basis: 250%;
+			text-align: center;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+
+		.copyright {
+			text-align: center;
+		}
+
+		.menu-icon {
+			width: 28px;
+			margin-left: 20px;
+			display: none;
+		}
+
+		/*------------media query for menu---------*/
+		@media only screen and (max-width: 800px) {
+			nav ul {
+				position: absolute;
+				top: 70px;
+				right: 0;
+				background: #333;
+				width: 100p%;
+				overflow: hidden;
+				transition: max-height 0.5s;
+			}
+
+			nav ul li {
+				display: block;
+				margin-right: 50px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+
+			nav ul li a {
+				color: #fff;
+			}
+
+			.menu-icon {
+				display: block;
+				cursor: pointer;
+			}
+		}
+
+		/*-------all products-----------*/
+		.row-2 {
+			justify-content: space-between;
+			margin: 100px auto 50px;
+			padding: 5px;
+		}
+
+		select {
+			border: 1px solid #ff523b;
+		}
+
+	
+		/*--------------- single product details-----------*/
+		.single-product {
+			margin-top: 80px;
+		}
+
+		.single-product .col-2 img {
+			padding: 0;
+		}
+
+		.single-product .col-2 {
+			padding: 20px;
+		}
+
+		.single-product h4 {
+			margin: 20px 0;
+			font-size: 22px;
+			font-weight: bold;
+		}
+
+		.single-product select {
+			display: block;
+			padding: 10px;
+			margin-top: 20px;
+		}
+
+		.single-product input {
+			width: 50px;
+			height: 40px;
+			padding-left: 10px;
+			font-size: 20px;
+			margin-right: 10px;
+			border: 1px solid #ff523b;
+		}
+
+		input:focus {
+			outline: none;
+		}
+
+		.single-product .fa {
+			color: #ff523b;
+			margin-left: 10px;
+		}
+
+		.small-img-row {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.small-img-col {
+			flex-basis: 24%;
+			cursor: pointer;
+		}
+
+		/*---------cart items-------*/
+		.cart-page {
+			margin: 80px auto;
+
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.cart-info {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		th {
+			text-align: left;
+			padding: 5px;
+			color: #fff;
+			background: #ff523b;
+		}
+
+		td {
+			padding: 10px 5px;
+		}
+
+		td input {
+			width: 40px;
+			height: 30px;
+			padding: 5px;
+		}
+
+		td a {
+			color: #ff523b;
+			font-size: 12px;
+		}
+
+		td img {
+			width: 80px;
+			height: 80px;
+			margin-right: 10px;
+		}
+
+		.total-price {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.total-price table {
+			border-top: 3px solid #ff523b;
+			width: 100%;
+			max-width: 400px;
+		}
+
+		td:last-child {
+			text-align: right;
+		}
+
+		th:last-child {
+			text-align: right;
+		}
+
+		/*--acc-page-----------*/
+		.account-page {
+			padding: 50px 0;
+			background-color: rgba(0, 0, 0, 0.15);
+		}
+
+		.form-container {
+			background: #fff;
+			width: 300px;
+			height: 400px;
+			position: relative;
+			text-align: center;
+			padding: 20px 0;
+			margin: auto;
+			box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+		}
+
+		.form-container span {
+			font-weight: bold;
+			padding: 0px;
+			color: #555;
+			cursor: pointer;
+			width: 100px;
+			display: inline-block;
+		}
+
+		.form-btn {
+			display: inline-block;
+
+		}
+
+		.form-container form {
+			max-width: 300px;
+			padding: 0 20px;
+			position: absolute;
+			top: 130px;
+			transition: transform 1s;
+
+		}
+
+		form input {
+			width: 100%;
+			height: 30px;
+			margin: 10px 0;
+			padding: 0 10px;
+			border: 1px solid #ccc;
+		}
+
+		form .btn {
+			width: 100%;
+			border: none;
+			margin: 10px 0;
+		}
+
+		form .btn;
+
+		focus {
+			outline: none;
+		}
+
+		#LoginForm {
+			left: -300px;
+		}
+
+		#RegForm {
+			left: 0;
+		}
+
+		form a {
+			font-size: 12px;
+		}
+
+		#Indicator {
+			width: 100px;
+			border: none;
+			background: #ff523b;
+			height: 3px;
+			margin-top: 8px;
+			transform: translateX(100px);
+			transition: transform 1s;
+		}
+	</style>
+</head>
+<body>
+	<div class="header" style="background-image: background.jpg">
+	<div class="container">
+		<div class="navbar">
+			
+			<div class="nav">
+				<ul id="MenuItems" >
+					<li><a href="/">Home</a></li>
+					<li><a href="/product">Products</a></li>
+					<li><a href="">About</a></li>
+					{{!-- <li><a href="#contact-id">Contact</a></li> --}}
+					<li><a href="/account">Account</a></li>
+				</ul>	
+			</div>
+			{{!-- <a href="/cart"><img src="/assets/cart.png" width="30px" height="30px"></a> --}}
+			<div class="logo">
+				<a href="/"><img src="./assets/logo.png" width="125px"></a>
+			</div>
+			{{!-- <img src="./assets/menu.png" class="menu-icon" onclick="menutoggle()"> --}}
+		</div>
+		<div class="row" style="background-color: rgba(0, 0, 0, 0.15); margin-top: 0px;" >
+			<div class="col-2">
+				<h1 style="padding-left: 35px;">Give Your Workout<br>A New Style!</h1>
+				<p style="padding-left: 35px;">Success isn't always about greatness. It's about consistency. Consistent<br> hard work gains success. Greatness will come. </p>
+				<a href=""class="btn">Explore now &#8594;</a>
+			</div>
+			<div class="col-2">
+				<img src="./assets/image1.png">
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- -------------featured categories----------- -->
+	<hr>
+<div class="categories">
+	<div class="small-container">
+	<div class="row">
+		<div class="col-3">
+			<img src="./assets/category-1.jpg">
+		</div>
+		<div class="col-3">
+			<img src="./assets/category-2.jpg">
+		</div><div class="col-3">
+			<img src="./assets/category-3.jpg">
+		</div>
+	</div>
+</div>
+</div>
+<!-- <hr> -->
+<!-- -------------featured products----------- -->
+	<div class="small-container">
+		<h2 class="title ">Featured Products</h2>
+		<div class="row">
+			
+			<div class="col-4">
+				<img src="./assets/product-1.jpg">
+					<h4>REDMI 10 Prime</h4>
+				<p>$520.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-2.jpg">
+				<h4>Laptop Skin</h4>
+				<p>$5.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-3.jpg">
+				<h4>i-Phone 12</h4>
+				<p>$1000.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-4.jpg">
+				<h4>Blue Printed T-Shirt</h4>
+				<p>$50.00</p>
+			</div>
+		</div>
+		<h2 class="title">Latest Products</h2>
+		<div class="row">
+			
+			<div class="col-4">
+				<img src="./assets/product-5.jpg">
+				<h4>Tracking Shoes</h4>
+				<p>$40.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-6.jpg">
+				<h4>Dumbell Set</h4>
+				<p>$75.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-7.jpg">
+				<h4>Skipping Rope</h4>
+				<p>$50.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-8.jpg">
+				<h4>Yonex Badminton Racket</h4>
+				<p>$20.00</p>
+			</div>
+		</div>
+		<!-- <hr> -->
+		<div class="row">
+			
+			<div class="col-4">
+				<img src="./assets/product-9.jpg">
+				<h4>HP Pavillion </h4>
+				<p>$45.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-10.jpg">
+				<h4>VAIO Laptop</h4>
+				<p>$750.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-11.jpg">
+				<h4>Macbook-Air</h4>
+				<p>$650.00</p>
+			</div>
+			<div class="col-4">
+				<img src="./assets/product-12.jpg">
+				<h4>Dell Inspiron</h4>
+				<p>$950.00</p>
+			</div>
+		</div>
+	</div>
+	
+	<!-- --------offers----------- -->
+	<div class="offer">
+		<div class="small-container">
+			<div class="row">
+				<div class="col-2">
+					<img src="./assets/exclusive.png" class="offer-img">
+				</div>
+				<div class="col-2">
+					<p>Exclusively Available on RedStore</p>
+					<h1>Smart Band 4</h1>
+					<small>The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED color full-touch display with adjustable brightness, so everything is clear as can.</small>
+					<a href="" class="btn">Buy Now &#8594;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- -----------testimonial------ -->
+<div class="testimonial">
+	<div class="small-container">
+		<div class="row">
+			<div class="col-3">
+				    <p>Very good website to shop from. I have never recieved any bad quality products.</p>
+					<img src="./assets/user-1.png">
+					<h3>Sean Parker</h3>
+			</div>
+			<div class="col-3">
+				<i class="fa fa-quote-left"></i>
+				    <p>Very fast delivery. Easy to make payments, and to use.</p>
+					<img src="./assets/user-2.png">
+					<h3>Mike Smitg</h3>
+			</div>
+			<div class="col-3">
+				<i class="fa fa-quote-left"></i>
+				    <p>Gives various offers at certain time intervals, like Diwali Sale, Holi Sale, and the offers are quite good.</p>
+					<img src="./assets/user-3.png">
+					<h3>Aakrishi Tiwari</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- -------------brands---------- -->
+<div class="brands">
+	<div class="smallcontainer">
+		<div class="row">
+<!-- 			<div class="col-5">
+				<img src="logo-paypal.png">
+			</div> -->
+			<div class="col-5">
+				<img src="./assets/logo-oppo.png">
+			</div>
+			<div class="col-5">
+				<img src="./assets/logo-godrej.png">
+			</div>
+			<div class="col-5">
+				<img src="./assets/logo-coca-cola.png">
+			</div>
+			<div class="col-5">
+				<img src="./assets/logo-philips.png">
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ----------footer- -->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			
+			<div class="footer-col-2">
+				<p>Our Purpose is to sustainably make the pleasure and benefits of sports accessible to the many.  </p>
+			</div>
+
+			
+			<div class="footer-col-4" id="contact-id">
+				<h3>Follow us</h3>
+				<ul>
+					<li><a href="https://github.com/arpangupta1003"style="color:#fff"><img src="./assets/git.png" width="50px" height="50px"></a></li>
+					<li><a href="https://www.instagram.com/ur_dooms_day/"style="color:#fff"><img src="./assets/insta.png" width="50px" height="50px"></a></li>
+					<li><a href="mailto:arpangupta1003@gmail.com" style="color:#fff"><img src="./assets/gmail.png" width="70px" height="40px"></a></li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+		<p class="copyright"> Copyright 2020 - ARPAN CORP.</p>
+	</div>
+</div>
+<!-- -------js for toggle menu------- -->
+<script type="text/javascript">
+	var MenuItems=document.getElementById("MenuItems");
+	MenuItems.style.mahHeight="0px";
+	function menutoggle()
+	{
+		if(MenuItems.style.maxHeight=="0px")
+		{
+			MenuItems.style.maxHeight="200px";
+		}
+		else
+		{
+			MenuItems.style.maxHeight="0px";
+		}
+	}
+</script>
+
+
+</body>
+</html>
