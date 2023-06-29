@@ -1,15 +1,11 @@
 const express = require('express');
 const hbs = require('hbs');
-
-
-const router = express.Router();
-const app = express();
 const user = require('./models/userModel');
-// const user=require('')
-
 const path = require('path');
 require('C:/Users/arpan/OneDrive/Desktop/backend/Ecom-main/Ecom-main/server/db/connection.js')
 
+const app = express();
+const router = express.Router();
 
 const staticPath = path.join(__dirname, "../public");
 const templatePath = path.join(__dirname, "./template/views");
@@ -19,10 +15,9 @@ const partialPath = path.join(__dirname, "");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.set("view engine", "hbs");
-
 app.use(express.static(staticPath));
-
 app.set("views", templatePath);
 hbs.registerPartials(partialPath);
 
@@ -47,16 +42,6 @@ app.get('/cart', (req, res) => {
 app.get('/account', (req, res) => {
     // res.send("this is about page");
     res.render('account')
-})
-
-
-app.get('/contact', (req, res) => {
-    res.send("this is contact page");
-})
-
-
-app.get('/help', (req, res) => {
-    res.send("this is help page");
 })
 
 app.post('/register', async (req, res) => {
@@ -111,8 +96,6 @@ app.post('/login', async(req,res)=>{
         res.status(400).send(err);
     }
 })
-
-
 
 app.listen(7000, (req, res) => {
     try {
