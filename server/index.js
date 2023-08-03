@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const user = require('./models/userModel');
 const path = require('path');
-require('C:/Users/arpan/OneDrive/Desktop/backend/Ecom-main/Ecom-main/server/db/connection.js')
+require('C:/Users/arpan/OneDrive/Desktop/backend/Ecom-main/server/db/connection.js');
 
 const app = express();
 const router = express.Router();
@@ -97,9 +97,9 @@ app.post('/login', async(req,res)=>{
     }
 })
 
-app.listen(7000, (req, res) => {
+app.listen(8000, (req, res) => {
     try {
-        console.log("Server running successfully on server 7000");
+        console.log("Server running successfully on server 8000");
     }
     catch (err) {
         console.log(err);
